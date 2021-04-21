@@ -1,61 +1,60 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-      <img src="<?= base_url() ?>dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-           style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
-    </a>
+  <!-- Brand Logo -->
+  <a href="index3.html" class="brand-link">
+    <img src="<?= base_url() ?>dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+    <span class="brand-text font-weight-light">AdminLTE 4</span>
+  </a>
 
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="<?= base_url() ?>dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
-        </div>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- Sidebar user panel (optional) -->
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class="image">
+        <img src="<?= base_url() ?>dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
       </div>
+      <div class="info">
+        <a href="#" class="d-block">Alexander Pierce</a>
+      </div>
+    </div>
 
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item">
-            <a href="<?= base_url('dashboard') ?>" class="nav-link <?= ($this->uri->segment(1,0) == 'dashboard' ? 'active' : '') ?>">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Dashboard
-                <!-- <span class="badge badge-info right">2</span> -->
-              </p>
-            </a>
-          </li>
-          <?php foreach ($main_menu as $mm) : ?>
-          <li class="nav-item has-treeview <?= ($mm['url'] == $this->uri->segment(1,0) ? 'menu-open' : '')  ?>">
-            <a href="#" class="nav-link <?= ($mm['url'] == $this->uri->segment(1,0) ? 'active' : '')  ?>">
+        <li class="nav-item">
+          <a href="<?= base_url('dashboard') ?>" class="nav-link <?= ($this->uri->segment(1, 0) == 'dashboard' ? 'active' : '') ?>">
+            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <p>
+              Dashboard
+              <!-- <span class="badge badge-info right">2</span> -->
+            </p>
+          </a>
+        </li>
+        <?php foreach ($main_menu as $mm) : ?>
+          <li class="nav-item has-treeview <?= ($mm['url'] == $this->uri->segment(1, 0) ? 'menu-open' : '')  ?>">
+            <a href="#" class="nav-link <?= ($mm['url'] == $this->uri->segment(1, 0) ? 'active' : '')  ?>">
               <i class="nav-icon fas <?= $mm['icon'] ?>"></i>
               <p>
                 <?= $mm['nama_menu'] ?>
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            
+
 
 
             <ul class="nav nav-treeview">
-            <?php foreach($sub_menu as $sm): 
-              if ($sm['main_menu'] == $mm['kode_menu']) {
-              
+              <?php foreach ($sub_menu as $sm) :
+                if ($sm['main_menu'] == $mm['kode_menu']) {
+
               ?>
-              <li class="nav-item">
-                <a href="<?= base_url($sm['url']) ?>" class="nav-link <?= ($sm['url'] == $this->uri->segment(1,0).$this->uri->slash_segment(2,'leading') ? "active" : "") ?>">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p><?= $sm['nama_menu'] ?></p>
-                </a>
-              </li>
-              <!-- <li class="nav-item">
+                  <li class="nav-item">
+                    <a href="<?= base_url($sm['url']) ?>" class="nav-link <?= ($sm['url'] == $this->uri->segment(1, 0) . $this->uri->slash_segment(2, 'leading') ? "active" : "") ?>">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p><?= $sm['nama_menu'] ?></p>
+                    </a>
+                  </li>
+                  <!-- <li class="nav-item">
                 <a href="./index2.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Dashboard v2</p>
@@ -67,14 +66,14 @@
                   <p>Dashboard v3</p>
                 </a>
               </li> -->
-              
+
               <?php }
               endforeach ?>
             </ul>
-           
+
           </li>
-          <?php endforeach ?>
-          <!-- <li class="nav-item">
+        <?php endforeach ?>
+        <!-- <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
@@ -478,14 +477,14 @@
               </li>
             </ul>
           </li> -->
-          <li class="nav-header"> Bottom Navigation </li>
-          <li class="nav-item">
-            <a href="<?= base_url() ?>login/out" class="nav-link">
-              <i class="nav-icon fas fa-file"></i>
-              <p>Logout</p>
-            </a>
-          </li>
-          <!-- <li class="nav-header">MULTI LEVEL EXAMPLE</li>
+        <li class="nav-header"> Bottom Navigation </li>
+        <li class="nav-item">
+          <a href="<?= base_url() ?>login/out" class="nav-link">
+            <i class="nav-icon fas fa-file"></i>
+            <p>Logout</p>
+          </a>
+        </li>
+        <!-- <li class="nav-header">MULTI LEVEL EXAMPLE</li>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="fas fa-circle nav-icon"></i>
@@ -569,9 +568,9 @@
               <p>Informational</p>
             </a>
           </li> -->
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
-  </aside>
+      </ul>
+    </nav>
+    <!-- /.sidebar-menu -->
+  </div>
+  <!-- /.sidebar -->
+</aside>
