@@ -56,6 +56,32 @@ class Data_karyawan_m extends CI_Model
 		return json_encode(['status' => 'success', 'pesan' => 'Data berhasil disimpan']);
 	}
 
+	public function simpan_edit()
+	{
+		if ($this->input->post('id') != hash_id($this->input->post('nik'))) {
+			return json_encode(['status' => 'error', 'pesan' => 'System tidak memahami']);
+		}
+		$this->db->where('nik', $this->input->post('nik'))->update('users', ['level_user' => $this->input->post('level_user')]);
+		$this->db->where('nik', $this->input->post('nik'))->update(
+			'data_karyawan',
+			[
+				'nama_lengkap' => $this->input->post('nama_lengkap'),
+				'email' => $this->input->post('email'),
+				'tgl_lahir' => $this->input->post('tgl_lahir'),
+				'tgl_masuk' => $this->input->post('tgl_masuk'),
+				'divisi' => $this->input->post('divisi'),
+				'jabatan' => $this->input->post('jabatan'),
+				'atasan1' => $this->input->post('atasan1'),
+				'atasan2' => $this->input->post('atasan2'),
+			]
+		);
+		if ($this->db->affected_rows() > 0) {
+			return json_encode(['status' => 'success', 'pesan' => 'Data berhasil diperbaharui']);
+		} else {
+			return json_encode(['status' => 'success', 'pesan' => 'Tidak ada data yang diperbaharui']);
+		}
+	}
+
 	var $table = 'users u';
 	var $column_order = array('', 'u.nik', 'nama_lengkap', 'divisi', 'level_user'); //set order berdasarkan field yang di mau
 	var $column_search = array('u.nik', 'level_user', 'nama_lengkap', 'divisi'); //set field yang bisa di search

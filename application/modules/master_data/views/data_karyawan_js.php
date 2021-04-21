@@ -24,7 +24,7 @@
           keyboard: false
         }, 'show');
 
-        validate_form();
+        validate_form('tambah ');
         cek_divisi_jabatan();
         call_datepicker();
 
@@ -75,7 +75,7 @@
     });
   }
 
-  function validate_form() {
+  function validate_form(action) {
 
 
     $.validator.setDefaults({
@@ -207,7 +207,7 @@
         let formdata = $('#form-action').serialize();
         xhr = $.ajax({
           method: "POST",
-          url: "<?= base_url() . $this->uri->segment(1, 0) . $this->uri->slash_segment(2, 'both') ?>simpan-tambah",
+          url: "<?= base_url() . $this->uri->segment(1, 0) . $this->uri->slash_segment(2, 'both') ?>simpan-" + action,
           data: formdata,
           success: function(response) {
             let result = JSON.parse(response);
@@ -331,7 +331,7 @@
               keyboard: false
             }, 'show');
 
-            validate_form();
+            validate_form('edit');
             cek_divisi_jabatan();
             call_datepicker();
           }

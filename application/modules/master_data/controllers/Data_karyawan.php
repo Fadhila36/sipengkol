@@ -52,6 +52,15 @@ class Data_karyawan extends CI_Controller
         }
         echo $this->Data_model->simpan_tambah();
     }
+
+    public function simpan_edit()
+    {
+        cek_ajax();
+        if (cek_akses_user()['edit'] == 0) {
+            redirect(base_url('unauthorized'));
+        }
+        echo $this->Data_model->simpan_edit();
+    }
     public function list_jabatan()
     {
         cek_ajax();
